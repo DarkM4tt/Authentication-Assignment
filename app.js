@@ -88,7 +88,7 @@ app.post(
 
 app.get('/logout', function (req, res) {
   req.logout()
-  res.redirect('/login')
+  res.redirect('localhost:5000/login')
 })
 
 function isLoggedIn(req, res, next) {
