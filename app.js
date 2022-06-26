@@ -11,7 +11,7 @@ mongoose.connect('mongodb://localhost/auth_demo_app', {}, function (err) {
   console.log(err)
 })
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
@@ -36,7 +36,7 @@ app.get('/', function (req, res) {
 })
 
 app.get('/home', isLoggedIn, function (req, res) {
-  res.render('home')
+  res.render('http://localhost:3000/')
 })
 
 app.get('/register', function (req, res) {
@@ -57,7 +57,7 @@ app.post('/register', function (req, res) {
         return res.render('register')
       }
       passport.authenticate('local')(req, res, function () {
-        res.redirect('/secret')
+        res.redirect('http://localhost:3000/')
       })
     }
   )
@@ -70,7 +70,7 @@ app.get('/login', function (req, res) {
 app.post(
   '/login',
   passport.authenticate('local', {
-    successRedirect: '/home',
+    successRedirect: 'http://localhost:3000/',
     failureRedirect: '/login',
   }),
   function (req, res) {
