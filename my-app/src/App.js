@@ -28,7 +28,10 @@ function App() {
 
   return (
     <div className="header">
-      <form action="http://localhost:5000/logout" method="GET">
+      <form
+        action="https://whispering-sea-68558.herokuapp.com/login"
+        method="GET"
+      >
         <button>Logout</button>
       </form>
       <div className="App">
