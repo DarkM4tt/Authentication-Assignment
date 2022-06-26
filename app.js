@@ -7,9 +7,17 @@ const LocalStrategy = require('passport-local')
 const passportLocalMongoose = require('passport-local-mongoose')
 const User = require('./models/user')
 
-mongoose.connect('mongodb://localhost/auth_demo_app', {}, function (err) {
-  console.log(err)
-})
+const DB =
+  'mongodb+srv://auth1:gEYtTSCqghwmNL16@cluster0.vjh35.mongodb.net/auth_demo_app?retryWrites=true&w=majority'
+
+mongoose
+  .connect(DB)
+  .then(() => {
+    console.log('connection successful')
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 
 const PORT = process.env.PORT || 5000
 
