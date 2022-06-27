@@ -44,7 +44,7 @@ app.get('/', function (req, res) {
 })
 
 app.get('/home', isLoggedIn, function (req, res) {
-  res.render('http://localhost:3000/')
+  res.render('https://create-reac.herokuapp.com/')
 })
 
 app.get('/register', function (req, res) {
@@ -65,7 +65,7 @@ app.post('/register', function (req, res) {
         return res.render('register')
       }
       passport.authenticate('local')(req, res, function () {
-        res.redirect('http://localhost:3000/')
+        res.redirect('https://create-reac.herokuapp.com/')
       })
     }
   )
@@ -78,7 +78,7 @@ app.get('/login', function (req, res) {
 app.post(
   '/login',
   passport.authenticate('local', {
-    successRedirect: 'http://localhost:3000/',
+    successRedirect: 'https://create-reac.herokuapp.com/',
     failureRedirect: '/login',
   }),
   function (req, res) {
@@ -88,7 +88,7 @@ app.post(
 
 app.get('/logout', function (req, res) {
   req.logout()
-  res.redirect('localhost:5000/login')
+  res.redirect('/login')
 })
 
 function isLoggedIn(req, res, next) {
